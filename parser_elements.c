@@ -6,7 +6,7 @@
 /*   By: jdidier <jdidier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 22:49:36 by jdidier           #+#    #+#             */
-/*   Updated: 2021/03/04 15:38:36 by jdidier          ###   ########.fr       */
+/*   Updated: 2021/03/05 16:48:04 by jdidier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ void	parse_path(t_cub3d *cub, char **str)
 	else
 	{
 		if (!ft_strcmp("NO", str[0]))
+		{
 			cub->tab[0] = new_texture(cub->mlx, str[1]);
+			ft_lstadd_back(&cub->imgs, ft_lstnew(cub->tab[0].img_ptr));
+		}
 		else if (!ft_strcmp("SO", str[0]))
 			cub->tab[1] = new_texture(cub->mlx, str[1]);
 		else if (!ft_strcmp("WE", str[0]))

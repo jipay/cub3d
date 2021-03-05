@@ -6,7 +6,7 @@
 /*   By: jdidier <jdidier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 11:27:24 by jdidier           #+#    #+#             */
-/*   Updated: 2021/03/04 15:37:03 by jdidier          ###   ########.fr       */
+/*   Updated: 2021/03/05 16:45:07 by jdidier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	init(t_cub3d *cub)
 	cub->spts = NULL;
 	cub->stripeh = NULL;
 	cub->map.g = NULL;
+	cub->imgs = NULL;
 	while (i < 5)
 		cub->tab[i++].img_ptr = NULL;
 	cub->img.img_ptr = NULL;
@@ -35,7 +36,7 @@ void	setup(t_cub3d *cub)
 	cub->raydst = malloc(sizeof(double) * cub->w_width);
 	cub->stripeh = malloc(sizeof(int) * cub->w_width);
 	cub->dstprojplane = (cub->w_width / 2) / tan(deg2rad(FOV / 2));
-	cub->img.img_ptr = mlx_new_image(cub->mlx, cub->w_width, cub->w_height);
+	ft_lstadd_back(&cub->imgs, ft_lstnew(cub->img.img_ptr = mlx_new_image(cub->mlx, cub->w_width, cub->w_height)));
 	cub->img.img_data = mlx_get_data_addr(cub->img.img_ptr, &cub->img.bpp,
 	&cub->img.size_line, &cub->img.endian);
 }

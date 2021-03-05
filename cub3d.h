@@ -6,7 +6,7 @@
 /*   By: jdidier <jdidier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 17:58:52 by jdidier           #+#    #+#             */
-/*   Updated: 2021/03/04 15:35:47 by jdidier          ###   ########.fr       */
+/*   Updated: 2021/03/05 16:43:28 by jdidier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ typedef struct		s_cub3d
 	void			*mlx;
 	void			*win;
 	int				*stripeh;
+	t_list			*imgs;
 	t_data			img;
 	t_player		player;
 	t_data			tab[5];
