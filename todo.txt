@@ -1,0 +1,18 @@
+## PARSING:
+	- parsing map's grid
+	- code clean
+
+## ERROR:
+	- impelement error handler
+	00 - Nombre d'arguments invalide
+	01 - Fichier invalide -> expect file.cub
+	02 - Impossile d'ouvrir le Fichier
+	03 - Deuxieme parametre invalide, expect "--save"
+	04 - Element non attendu dans le fichier, expect : ....
+	05 - Erreur Nombre d'arguments pour l'element 
+	06 - Erreur Element already exist in file
+	07 - Erreur Resolution : not a DIGIT
+	08 - Erreur fichier de textures : expect .xpm extension
+	09 - Erreur Nombre d'arguments RGB expect 3
+	10 - Erreur R,G,B valeur non signe comprise entre 0 et 255
+	11 - 
