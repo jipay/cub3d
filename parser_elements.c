@@ -6,7 +6,7 @@
 /*   By: jdidier <jdidier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 22:49:36 by jdidier           #+#    #+#             */
-/*   Updated: 2021/03/05 16:48:04 by jdidier          ###   ########.fr       */
+/*   Updated: 2021/03/05 20:12:16 by jdidier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,15 @@ void	parse_path(t_cub3d *cub, char **str)
 	else
 	{
 		if (!ft_strcmp("NO", str[0]))
-		{
-			cub->tab[0] = new_texture(cub->mlx, str[1]);
-			ft_lstadd_back(&cub->imgs, ft_lstnew(cub->tab[0].img_ptr));
-		}
+			cub->tab[0] = new_texture(cub, str[1]);
 		else if (!ft_strcmp("SO", str[0]))
-			cub->tab[1] = new_texture(cub->mlx, str[1]);
+			cub->tab[1] = new_texture(cub, str[1]);
 		else if (!ft_strcmp("WE", str[0]))
-			cub->tab[2] = new_texture(cub->mlx, str[1]);
+			cub->tab[2] = new_texture(cub, str[1]);
 		else if (!ft_strcmp("EA", str[0]))
-			cub->tab[3] = new_texture(cub->mlx, str[1]);
+			cub->tab[3] = new_texture(cub, str[1]);
 		else if (!ft_strcmp("S", str[0]))
-			cub->tab[4] = new_texture(cub->mlx, str[1]);
+			cub->tab[4] = new_texture(cub, str[1]);
 	}
 	close(fd);
 }

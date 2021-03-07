@@ -6,7 +6,7 @@
 /*   By: jdidier <jdidier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/25 16:23:52 by jdidier           #+#    #+#             */
-/*   Updated: 2021/03/05 16:55:16 by jdidier          ###   ########.fr       */
+/*   Updated: 2021/03/07 17:47:46 by jdidier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,16 @@ void	send_error(int id, t_cub3d *cub)
 
 void	free_images(t_cub3d *cub)
 {
-	int		i;
+	t_list	*tmp;
 
-	i = 0;
-	while (i < 5)
+	while (cub->imgs)
 	{
-		if (cub->tab[i].img_ptr)
-			mlx_destroy_image(cub->mlx, cub->tab[i].img_ptr);
-		i++;
+		tmp = cub->imgs->next;
+		mlx_destroy_image(cub->mlx, cub->imgs->content);
+		free(cub->imgs);
+		cub->imgs = NULL;
+		cub->imgs = tmp;
 	}
-	if (cub->img.img_ptr)
-		mlx_destroy_image(cub->mlx, cub->img.img_ptr);
 }
 
 void	free_struct(t_cub3d *cub)

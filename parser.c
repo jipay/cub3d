@@ -6,7 +6,7 @@
 /*   By: jdidier <jdidier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 19:49:43 by jdidier           #+#    #+#             */
-/*   Updated: 2021/03/04 15:38:28 by jdidier          ###   ########.fr       */
+/*   Updated: 2021/03/07 17:33:04 by jdidier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,15 @@ void	parse(int fd, t_cub3d *cub)
 	int		ret;
 	char	*line;
 
-	cub->map.w = 0;
-	cub->map.h = 0;
-	cub->map.inmap = 0;
-	cub->map.blank = 0;
-	cub->map.player_parsed = 0;
 	ret = 1;
 	while (ret == 1)
 	{
 		ret = get_next_line(fd, &line);
 		if (ret < 0)
+		{
+			free(line);
 			send_error(1, cub);
+		}
 		if (!isallparsed())
 			parse_line(line, cub);
 		else

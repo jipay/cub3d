@@ -6,7 +6,7 @@
 /*   By: jdidier <jdidier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 17:58:52 by jdidier           #+#    #+#             */
-/*   Updated: 2021/03/05 16:43:28 by jdidier          ###   ########.fr       */
+/*   Updated: 2021/03/05 20:12:57 by jdidier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,7 +182,7 @@ int					isallparsed();
 int					isstrdig(char *str);
 int					ismap(char *str);
 void				check_map(t_cub3d *cub);
-t_data				new_texture(void *mlx, char *path);
+t_data				new_texture(t_cub3d *cub, char *path);
 unsigned int		get_pixel_color(t_data *texture, int x, int y);
 void				my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void				draw_wall(int x, t_cub3d *cub, t_ray ray, t_data *text);

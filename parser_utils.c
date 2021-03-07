@@ -6,7 +6,7 @@
 /*   By: jdidier <jdidier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 22:41:42 by jdidier           #+#    #+#             */
-/*   Updated: 2021/03/04 14:50:59 by jdidier          ###   ########.fr       */
+/*   Updated: 2021/03/05 20:11:41 by jdidier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@ int		check_ext(char *path, char *ext)
 		return (0);
 }
 
-t_data	new_texture(void *mlx, char *path)
+t_data	new_texture(t_cub3d *cub, char *path)
 {
 	t_data	t;
 
-	t.img_ptr = mlx_xpm_file_to_image(mlx, path, &t.width, &t.height);
+	t.img_ptr = mlx_xpm_file_to_image(cub->mlx, path, &t.width, &t.height);
+	ft_lstadd_back(&cub->imgs, ft_lstnew(t.img_ptr));
 	t.img_data = mlx_get_data_addr(t.img_ptr, &t.bpp, &t.size_line, &t.endian);
 	return (t);
 }
